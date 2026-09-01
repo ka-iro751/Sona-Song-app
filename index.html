@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sona</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- style -->
+    <link rel="stylesheet" href="./dist/output.css" />
+  </head>
+
+  <body
+    class="bg-black text-textColor font-bodyText flex flex-col h-screen overflow-hidden"
+  >
+    <div class="flex flex-1 overflow-hidden">
+      <!-- ==================== SIDEBAR ==================== -->
+      <nav
+        id="sideBar"
+        class="flex h-full w-60 shrink-0 flex-col gap-6 bg-bg-sideBar p-5 text-[14px] font-medium"
+      >
+        <div id="logo" class="mb-4 flex items-center gap-2 px-1">
+          <img src="icons/logo.svg" alt="" class="h-6 w-6" />
+          <span class="font-display text-[20px] font-bold">Sona</span>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <a
+            href="#"
+            id="nav-home"
+            class="flex items-center gap-3 rounded-lg text-text-muted hover:bg-surface px-3 py-2.5"
+          >
+            <img
+              src="icons/home_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+              class="h-5 w-5"
+            />
+            <span>Home</span>
+          </a>
+        </div>
+
+        <!-- bottom-pinned group -->
+        <div class="mt-auto flex flex-col gap-1">
+          <a
+            href="#"
+            id="nav-library"
+            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition hover:bg-surface hover:text-textColor"
+          >
+            <span class="flex items-center gap-3">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                class="h-5 w-5"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <path d="M8 4v16" />
+              </svg>
+              Your Library
+            </span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              class="h-4 w-4"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+            </svg>
+          </a>
+
+          <a
+            href="#"
+            id="nav-playlists"
+            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition hover:bg-surface hover:text-textColor"
+          >
+            <span class="flex items-center gap-3">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                class="h-5 w-5"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M4 6h11M4 12h11M4 18h7" stroke-linecap="round" />
+                <circle cx="19" cy="16" r="2.5" />
+                <path d="M21.5 16V6" />
+              </svg>
+              Playlists
+            </span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              class="h-4 w-4"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+            </svg>
+          </a>
+
+          <a
+            href="#"
+            id="nav-liked"
+            class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-text-muted transition hover:bg-surface hover:text-textColor"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              class="h-5 w-5"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M12 20s-7-4.35-9.5-8.5C.9 8.2 2.4 5 5.8 5c1.9 0 3.3 1 4.2 2.4C10.9 6 12.3 5 14.2 5c3.4 0 4.9 3.2 3.3 6.5C19 15.65 12 20 12 20Z"
+              />
+            </svg>
+            Liked Songs
+          </a>
+        </div>
+      </nav>
+
+      <!-- ==================== MAIN COLUMN ==================== -->
+      <div class="flex flex-1 flex-col overflow-hidden bg-bg-main">
+        <div class="flex-1 overflow-y-auto overflow-x-clip">
+          <!-- top bar -->
+          <header class="flex items-center gap-6 px-10 py-6">
+            <div class="relative w-full max-w-md">
+              <input
+                type="text"
+                id="search-input"
+                placeholder="What do you want to listen to?"
+                class="w-full rounded-full bg-surface py-3 pl-12 pr-5 text-[14px] text-textColor placeholder-text-muted transition focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-text-muted"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m21 21-4.3-4.3" stroke-linecap="round" />
+              </svg>
+            </div>
+
+            <div class="ml-auto flex items-center gap-5">
+              <button
+                id="notifications"
+                aria-label="Notifications"
+                class="text-textColor transition hover:text-primary"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="h-6 w-6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    d="M6 8a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 12 6 8Z"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M10 18a2 2 0 0 0 4 0" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <main class="px-10 pb-10">
+            <h1 class="font-display text-[32px] font-bold leading-tight">
+              Welcome Back
+            </h1>
+            <p class="mt-1 text-[15px] text-text-muted">
+              Let the music take over.
+            </p>
+
+            <!-- ============ QUICK PICKS ============ -->
+            <section class="mt-8">
+              <div class="mb-4 flex items-end justify-between">
+                <h2 class="font-display text-[22px] font-bold">Quick picks</h2>
+                <a
+                  href="#"
+                  class="text-[14px] font-medium text-text-muted transition hover:text-textColor"
+                  >View all</a
+                >
+              </div>
+
+              <div
+                id="quickPicks"
+                class="grid grid-cols-2 gap-4 sm:grid-cols-4"
+              >
+                <article
+                  class="quick-pick-card group relative overflow-hidden rounded-xl bg-surface transition hover:bg-surface-muted ease-in-out duration-300 hover:scale-103"
+                  data-term="pop"
+                >
+                  <div class="relative aspect-square">
+                    <img
+                      src="images/pop_music.jpg"
+                      alt=""
+                      class="h-full w-full object-cover"
+                    />
+                    <button
+                      aria-label="Play Feel Good Pop"
+                      class="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-text opacity-0 shadow-lg transition group-hover:opacity-100"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="h-4 w-4 translate-x-px"
+                        fill="currentColor"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4">
+                    <h3 class="truncate text-[15px] font-semibold">
+                      Feel Good Pop
+                    </h3>
+                    <p class="mt-0.5 line-clamp-2 text-[13px] text-text-muted">
+                      Upbeat hits to brighten your day
+                    </p>
+                  </div>
+                </article>
+
+                <article
+                  class="quick-pick-card group relative overflow-hidden rounded-xl bg-surface transition hover:bg-surface-muted ease-in-out duration-300 hover:scale-103"
+                  data-term="mood booster"
+                >
+                  <div class="relative aspect-square">
+                    <img
+                      src="images/mood_booster.jfif"
+                      alt=""
+                      class="h-full w-full object-cover"
+                    />
+                    <button
+                      aria-label="Play Mood Booster"
+                      class="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-text opacity-0 shadow-lg transition group-hover:opacity-100"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="h-4 w-4 translate-x-px"
+                        fill="currentColor"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4">
+                    <h3 class="truncate text-[15px] font-semibold">
+                      Mood Booster
+                    </h3>
+                    <p class="mt-0.5 line-clamp-2 text-[13px] text-text-muted">
+                      Energy up, mind clear
+                    </p>
+                  </div>
+                </article>
+
+                <article
+                  class="quick-pick-card group relative overflow-hidden rounded-xl bg-surface transition hover:bg-surface-muted ease-in-out duration-300 hover:scale-103"
+                  data-term="chill vibes"
+                >
+                  <div class="relative aspect-square">
+                    <img
+                      src="images/chill_vibes.jfif"
+                      alt=""
+                      class="h-full w-full object-cover"
+                    />
+                    <button
+                      aria-label="Play Chill Vibes"
+                      class="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-text opacity-0 shadow-lg transition group-hover:opacity-100"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="h-4 w-4 translate-x-px"
+                        fill="currentColor"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4">
+                    <h3 class="truncate text-[15px] font-semibold">
+                      Chill Vibes
+                    </h3>
+                    <p class="mt-0.5 line-clamp-2 text-[13px] text-text-muted">
+                      Slow beats for deep focus
+                    </p>
+                  </div>
+                </article>
+
+                <article
+                  class="quick-pick-card group relative overflow-hidden rounded-xl bg-surface transition hover:bg-surface-muted ease-in-out duration-300 hover:scale-103"
+                  data-term="hip hop"
+                >
+                  <div class="relative aspect-square">
+                    <img
+                      src="images/hip_hop.jfif"
+                      alt=""
+                      class="h-full w-full object-cover"
+                    />
+                    <button
+                      aria-label="Play Hip Hop Zone"
+                      class="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-text opacity-0 shadow-lg transition group-hover:opacity-100"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="h-4 w-4 translate-x-px"
+                        fill="currentColor"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-4">
+                    <h3 class="truncate text-[15px] font-semibold">
+                      Hip Hop Zone
+                    </h3>
+                    <p class="mt-0.5 line-clamp-2 text-[13px] text-text-muted">
+                      The best bars and flows
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <!-- ============ NEW RELEASES ============ -->
+            <section class="mt-10">
+              <div class="mb-4 flex items-end justify-between">
+                <h2 class="font-display text-[22px] font-bold">New releases</h2>
+                <a
+                  href="#"
+                  class="text-[14px] font-medium text-text-muted transition hover:text-textColor"
+                  >View all</a
+                >
+              </div>
+
+              <!-- New Releases-->
+
+              <div
+                id="newReleases"
+                class="grid grid-flow-col grid-rows-3 gap-3 overflow-x-auto pb-2"
+                style="grid-auto-columns: minmax(320px, 1fr)"
+              >
+                <article
+                  class="release-card flex items-center gap-3 rounded-lg p-2 transition hover:bg-surface"
+                >
+                  <img
+                    src=""
+                    alt=""
+                    class="h-14 w-14 shrink-0 rounded-md bg-surface object-cover"
+                  />
+                  <div class="min-w-0 flex-1">
+                    <h3 class="truncate text-[15px] font-semibold">
+                      Endless Nights
+                    </h3>
+                    <p class="truncate text-[13px] text-text-muted">
+                      Armaan Malik
+                    </p>
+                  </div>
+                  <button
+                    aria-label="Play Endless Nights"
+                    class="shrink-0 text-textColor transition hover:text-primary"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-8 w-8"
+                      fill="currentColor"
+                    >
+                      <circle cx="12" cy="12" r="11" fill-opacity="0.12" />
+                      <path d="M10 8.5v7l6-3.5z" />
+                    </svg>
+                  </button>
+                </article>
+              </div>
+            </section>
+
+            <!-- ============ YOUR FAVS ============ -->
+
+            <section class="mt-10">
+              <div class="mb-4 flex items-end justify-between">
+                <h2 class="font-display text-[22px] font-bold">Your favs</h2>
+                <div class="flex items-center gap-2">
+                  <button
+                    id="favsPrev"
+                    aria-label="Scroll left"
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-textColor transition hover:bg-surface-muted"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="m15 18-6-6 6-6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    id="favsNext"
+                    aria-label="Scroll right"
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-textColor transition hover:bg-surface-muted"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="m9 18 6-6-6-6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="yourFavs"
+                class="grid grid-flow-col auto-cols-33 gap-4 overflow-x-auto pb-2"
+              >
+                <article class="fav-card group">
+                  <div
+                    class="relative aspect-square overflow-hidden rounded-xl bg-surface"
+                  >
+                    <img src="" alt="" class="h-full w-full object-cover" />
+                    <button
+                      aria-label="Play The Weeknd"
+                      class="absolute bottom-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-text opacity-0 shadow-lg transition group-hover:opacity-100"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        class="h-3.5 w-3.5 translate-x-px"
+                        fill="currentColor"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <h3 class="mt-2 truncate text-[15px] font-semibold">
+                    The Weeknd
+                  </h3>
+                  <p class="truncate text-[13px] text-text-muted">Artist</p>
+                </article>
+              </div>
+            </section>
+
+            <!-- ============ PROMO BANNER ============ -->
+
+            <section
+              class="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl bg-surface p-6 sm:flex-row sm:items-center"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-bg-main"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <path
+                      d="M4 14v-3M8 17v-9M12 19V6M16 17V9M20 14v-3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h2 class="font-display text-[20px] font-bold">
+                    Music for every moment.
+                  </h2>
+                  <p class="text-[13px] text-text-muted">
+                    Handpicked playlists. Fresh every day.
+                  </p>
+                </div>
+              </div>
+              <button
+                id="exploreMore"
+                class="shrink-0 rounded-full bg-primary px-6 py-2.5 text-[14px] font-semibold text-primary-text transition hover:bg-primary-hover"
+              >
+                Explore more
+              </button>
+            </section>
+          </main>
+
+          <!-- ============ FOOTER ============ -->
+          <footer class="border-t border-border px-10 py-8">
+            <div class="flex flex-col gap-8 sm:flex-row sm:justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <img src="icons/logo.svg" alt="" class="h-5 w-5" />
+                  <span class="font-display text-[16px] font-bold">Sona</span>
+                </div>
+                <p class="mt-2 text-[13px] text-text-muted">
+                  © 2026 Sona. All rights reserved.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-8 text-[13px] sm:grid-cols-4">
+                <div>
+                  <h4 class="mb-3 font-semibold text-textColor">Company</h4>
+                  <ul class="flex flex-col gap-2 text-text-muted">
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >About</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >Careers</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >Press</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="mb-3 font-semibold text-textColor">Community</h4>
+                  <ul class="flex flex-col gap-2 text-text-muted">
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >For Artists</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >Developers</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >Support</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="mb-3 font-semibold text-textColor">Legal</h4>
+                  <ul class="flex flex-col gap-2 text-text-muted">
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >Privacy Policy</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >Terms of Use</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="transition hover:text-textColor"
+                        >Cookies</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="mb-3 font-semibold text-textColor">Language</h4>
+                  <select
+                    id="languageSelect"
+                    class="w-full rounded-lg border border-border bg-bg-main px-3 py-2 text-[13px] text-textColor"
+                  >
+                    <option>English</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== PLAYER BAR ==================== -->
+    <aside
+      id="queuePanel"
+      class="fixed right-0 top-20 bottom-24 z-50 w-[25vw] flex-col rounded-l-xl border border-border bg-bg-sideBar shadow-2xl overflow-y-scroll hidden"
+    >
+      <div
+        class="flex items-center justify-between border-b border-border px-5 py-4"
+      >
+        <h3 class="text-[15px] font-semibold text-textColor">Queue</h3>
+        <button
+          id="closeQueueBtn"
+          aria-label="Close queue"
+          class="text-text-muted transition hover:text-textColor"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M18 6 6 18M6 6l12 12" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!--song list -->
+      <div id="queueList" class="flex-1 py-2"></div>
+    </aside>
+
+    <footer
+      id="playerBar"
+      class="flex h-20 w-full shrink-0 items-center gap-4 border-t border-border bg-bg-sideBar px-6"
+    >
+      <!-- Queue panel — overlay, right side, floats above the player bar -->
+
+      <!-- now playing -->
+      <div class="flex w-64 min-w-0 items-center gap-3">
+        <img
+          src=""
+          alt=""
+          class="h-12 w-12 shrink-0 rounded-md bg-surface object-cover"
+        />
+        <div class="min-w-0">
+          <h3 class="truncate text-[15px] font-semibold">Die For You</h3>
+          <p class="truncate text-[13px] text-text-muted">The Weeknd</p>
+        </div>
+      </div>
+
+      <!-- transport controls -->
+      <div class="flex flex-1 flex-col items-center gap-2">
+        <div class="flex items-center gap-5">
+          <button
+            id="shuffleBtn"
+            aria-label="Shuffle"
+            class="text-text-muted transition hover:text-textColor"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M4 6h4l9 12h3M4 18h4l3.2-4.2M17.5 6H21m0 0-3 -3m3 3-3 3M21 18l-3 3m3-3-3-3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button
+            id="prevBtn"
+            aria-label="Previous"
+            class="text-textColor transition hover:text-primary ease-in-out duration-300 hover:scale-110"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
+              <path d="M6 5h2v14H6zM20 5v14l-11-7z" />
+            </svg>
+          </button>
+          <button
+            id="playBtn"
+            aria-label="Play"
+            class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-text transition hover:bg-primary-hover ease-in-out duration-300 hover:scale-105"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="h-4 w-4 translate-x-px"
+              fill="currentColor"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+          <button
+            id="nextBtn"
+            aria-label="Next"
+            class="text-textColor transition hover:text-primary ease-in-out duration-300 hover:scale-110"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
+              <path d="M18 5h-2v14h2zM4 5v14l11-7z" />
+            </svg>
+          </button>
+          <button
+            id="repeatBtn"
+            aria-label="Repeat"
+            class="text-text-muted transition hover:text-textColor"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M17 2l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="flex w-full max-w-xl items-center gap-2">
+          <span class="w-9 text-right text-[11px] text-text-muted">1:42</span>
+          <div
+            id="progressTrack"
+            class="h-1 flex-1 cursor-pointer rounded-full bg-surface"
+          >
+            <div
+              id="progressFill"
+              class="h-1 rounded-full bg-primary"
+              style="width: 40%"
+            ></div>
+          </div>
+          <span class="w-9 text-[11px] text-text-muted">4:20</span>
+        </div>
+      </div>
+
+      <!-- right-side controls -->
+      <div class="flex w-64 items-center justify-end gap-4">
+        <button
+          aria-label="Queue"
+          class="text-text-muted transition hover:text-textColor"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M4 6h11M4 12h11M4 18h7" stroke-linecap="round" />
+            <circle cx="19" cy="16" r="2.5" />
+            <path d="M21.5 16V6" />
+          </svg>
+        </button>
+
+        <div class="flex items-center gap-2">
+          <button
+            aria-label="Volume"
+            class="text-text-muted transition hover:text-textColor"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+              <path d="M4 9v6h4l5 4V5L8 9H4z" />
+            </svg>
+          </button>
+          <div
+            id="volumeTrack"
+            class="h-1 w-20 cursor-pointer rounded-full bg-surface"
+          >
+            <div
+              id="volumeFill"
+              class="h-1 rounded-full bg-primary"
+              style="width: 65%"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>
