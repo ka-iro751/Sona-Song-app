@@ -561,6 +561,9 @@
   .bg-surface {
     background-color: var(--color-surface);
   }
+  .bg-surface-muted {
+    background-color: var(--color-surface-muted);
+  }
   .object-cover {
     object-fit: cover;
   }

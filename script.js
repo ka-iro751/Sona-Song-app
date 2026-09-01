@@ -35,7 +35,20 @@ document.getElementById("queueList").addEventListener("click", (e) => {
 
 //wires of next btn
 document.getElementById("nextBtn").addEventListener("click", () => {
-    
+  let nextIndex = currentIndex + 1;
+  if (nextIndex >= currentPlaylist.length) {
+    nextIndex = 0;
+  }
+  playTrackAtIndex(nextIndex);
+});
+
+//wires previous btn
+document.getElementById("prevBtn").addEventListener("click", () => {
+  let prevIndex = currentIndex - 1;
+  if (prevIndex < 0) {
+    prevIndex = currentPlaylist.length - 1;
+  }
+  playTrackAtIndex(prevIndex);
 });
 
 //fetches data form api
@@ -79,10 +92,39 @@ function renderQueue(songs) {
   });
 }
 
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs.toString().padStart(2, "0")}`;
+}
+
+player.addEventListener("timeupdate", () => {
+  document.getElementById("currentTime").textContent =
+    `${formatTime(player.currentTime)}`;
+  document.getElementById("duration").textContent =
+    `${formatTime(player.duration)}`;
+
+  const percentage = (player.currentTime / player.duration) *100
+  document.getElementById("progressFill").style.width =`${percentage}%`;
+});
+
 //plays song at the given index
 function playTrackAtIndex(index) {
   currentIndex = index;
+  document.querySelectorAll(".queue-row").forEach((row) => {
+    row.classList.remove("bg-surface-muted");
+  });
+
+  const activeRow = document.querySelector(`.queue-row[data-index="${index}"]`);
+  if (activeRow) {
+    activeRow.classList.add("bg-surface-muted");
+  }
   const song = currentPlaylist[index];
+
+  document.querySelector("#playerBar h3").textContent = song.trackName;
+  document.querySelector("#playerBar p").textContent = song.artistName;
+  document.querySelector("#playerBar img").src = song.artworkUrl100;
+
   player.src = song.previewUrl;
   player.play();
 }
