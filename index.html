@@ -24,18 +24,25 @@
       <!--  -----------------------------------------------SIDEBAR-----------------------------------------------  -->
       <nav
         id="sideBar"
-        class="flex h-full w-60 shrink-0 flex-col gap-6 bg-bg-sideBar p-5 text-[14px] font-medium"
+        class="flex h-full w-60 shrink-0 flex-col gap-6 bg-bg-sideBar p-5 text-[14px] font-medium md:w-52 sm:w-20 sm:gap-3 sm:p-3 max-sm:fixed max-sm:inset-x-0 max-sm:bottom-0 max-sm:top-auto max-sm:z-50 max-sm:h-16 max-sm:w-full max-sm:flex-row max-sm:items-center max-sm:justify-around max-sm:p-2"
       >
-        <div id="logo" class="mb-4 flex items-center gap-2 px-1">
+        <div
+          id="logo"
+          class="mb-4 flex items-center gap-2 px-1 sm:mb-2 sm:justify-center max-sm:hidden"
+        >
           <img src="icons/logo.svg" alt="" class="h-6 w-6" />
-          <span class="font-display text-[20px] font-bold">Sona</span>
+          <span class="font-display text-[20px] font-bold sm:text-[17px]"
+            >Sona</span
+          >
         </div>
 
-        <div class="flex flex-col gap-1">
+        <div
+          class="flex flex-col gap-1 sm:w-full max-sm:flex-row max-sm:items-center max-sm:justify-around"
+        >
           <a
             href="#"
             id="nav-home"
-            class="flex items-center gap-3 rounded-lg text-text-muted bg-surface px-3 py-2.5"
+            class="flex items-center gap-3 rounded-lg text-text-muted bg-surface px-3 py-2.5 sm:justify-center sm:px-2 max-sm:flex-col max-sm:gap-1 max-sm:px-2 max-sm:py-1.5"
           >
             <img
               src="icons/home_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
@@ -47,13 +54,17 @@
         </div>
 
         <!-- bottom-pinned group -->
-        <div class="mt-auto flex flex-col gap-1">
+        <div
+          class="mt-auto flex flex-col gap-1 sm:w-full max-sm:mt-0 max-sm:flex-row max-sm:items-center max-sm:justify-around"
+        >
           <a
             href="#"
             id="nav-library"
-            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor"
+            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor sm:justify-center sm:px-2 max-sm:flex-col max-sm:gap-1 max-sm:px-2 max-sm:py-1.5"
           >
-            <span class="flex items-center gap-3">
+            <span
+              class="flex items-center gap-3 sm:justify-center max-sm:flex-col max-sm:gap-1"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -80,9 +91,11 @@
           <a
             href="#"
             id="nav-playlists"
-            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor"
+            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor sm:justify-center sm:px-2 max-sm:flex-col max-sm:gap-1 max-sm:px-2 max-sm:py-1.5"
           >
-            <span class="flex items-center gap-3">
+            <span
+              class="flex items-center gap-3 sm:justify-center max-sm:flex-col max-sm:gap-1"
+            >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -110,7 +123,7 @@
           <a
             href="#"
             id="nav-liked"
-            class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor"
+            class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor sm:justify-center sm:px-2 max-sm:flex-col max-sm:gap-1 max-sm:px-2 max-sm:py-1.5"
           >
             <svg
               viewBox="0 0 24 24"
@@ -129,11 +142,13 @@
       </nav>
 
       <!-- -----------------------------------------------MAIN COLUMN----------------------------------------------- -->
-      <div class="flex flex-1 flex-col overflow-hidden bg-bg-main">
-        <div class="flex-1 overflow-y-auto overflow-x-clip">
+      <div class="flex flex-1 flex-col overflow-hidden bg-bg-main min-w-0">
+        <div class="flex-1 overflow-y-auto overflow-x-clip pb-0 max-sm:pb-16">
           <!-- top bar -->
-          <header class="flex items-center gap-6 px-10 py-6">
-            <div class="relative w-full max-w-md">
+          <header
+            class="flex items-center gap-6 px-10 py-6 lg:px-8 md:px-5 sm:px-4 max-sm:gap-3 max-sm:py-4"
+          >
+            <div class="relative w-full max-w-md sm:max-w-full">
               <input
                 type="text"
                 id="search-input"
@@ -153,8 +168,10 @@
             </div>
           </header>
 
-          <main class="px-10 pb-10">
-            <h1 class="font-display text-[32px] font-bold leading-tight">
+          <main class="px-10 pb-10 lg:px-8 md:px-5 sm:px-4 max-sm:pb-6">
+            <h1
+              class="font-display text-[32px] font-bold leading-tight md:text-[28px] sm:text-[24px]"
+            >
               Welcome Back
             </h1>
             <p class="mt-1 text-[15px] text-text-muted">
@@ -162,14 +179,16 @@
             </p>
 
             <!-- -----------------------------------------------QUICK PICKS----------------------------------------------- -->
-            <section class="mt-8">
+            <section class="mt-8 md:mt-7 sm:mt-6">
               <div class="mb-4 flex items-end justify-between">
-                <h2 class="font-display text-[22px] font-bold">Quick picks</h2>
+                <h2 class="font-display text-[22px] font-bold sm:text-[19px]">
+                  Quick picks
+                </h2>
               </div>
 
               <div
                 id="quickPicks"
-                class="grid grid-cols-2 gap-4 sm:grid-cols-4"
+                class="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4"
               >
                 <article
                   class="quick-pick-card group relative overflow-hidden rounded-xl bg-surface transition hover:bg-surface-muted ease-in-out duration-300 hover:scale-103"
@@ -306,9 +325,11 @@
             </section>
 
             <!-- -----------------------------------------------NEW RELEASES----------------------------------------------- -->
-            <section class="mt-10">
+            <section class="mt-10 md:mt-8 sm:mt-7">
               <div class="mb-4 flex items-end justify-between">
-                <h2 class="font-display text-[22px] font-bold">New releases</h2>
+                <h2 class="font-display text-[22px] font-bold sm:text-[19px]">
+                  New releases
+                </h2>
                 <div class="flex items-center gap-2">
                   <button
                     id="newPrev"
@@ -355,16 +376,18 @@
 
               <div
                 id="newReleases"
-                class="grid grid-flow-col grid-rows-3 gap-3 overflow-x-auto pb-2"
+                class="grid grid-flow-col grid-rows-3 gap-3 overflow-x-auto pb-2 max-sm:grid-rows-2"
                 style="grid-auto-columns: minmax(320px, 1fr)"
               ></div>
             </section>
 
             <!-- -----------------------------------------------YOUR FAVS----------------------------------------------- -->
 
-            <section class="mt-10">
+            <section class="mt-10 md:mt-8 sm:mt-7">
               <div class="mb-4 flex items-end justify-between">
-                <h2 class="font-display text-[22px] font-bold">Your favs</h2>
+                <h2 class="font-display text-[22px] font-bold sm:text-[19px]">
+                  Your favs
+                </h2>
                 <div class="flex items-center gap-2">
                   <button
                     id="favsPrev"
@@ -409,7 +432,7 @@
 
               <div
                 id="yourFavs"
-                class="grid grid-flow-col auto-cols-33 gap-4 overflow-x-auto pb-2"
+                class="grid grid-flow-col auto-cols-33 gap-4 overflow-x-auto pb-2 sm:auto-cols-28 max-sm:auto-cols-36"
               >
                 <article class="fav-card group">
                   <div
@@ -429,7 +452,9 @@
                       </svg>
                     </button>
                   </div>
-                  <h3 class="mt-2 truncate text-[15px] font-semibold">
+                  <h3
+                    class="mt-2 truncate text-[15px] font-semibold sm:text-[13px]"
+                  >
                     The Weeknd
                   </h3>
                   <p class="truncate text-[13px] text-text-muted">Artist</p>
@@ -446,9 +471,9 @@
             <!-- -----------------------------------------------PROMO BANNER----------------------------------------------- -->
 
             <section
-              class="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl bg-surface p-6 sm:flex-row sm:items-center"
+              class="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl bg-surface p-6 sm:flex-row sm:items-center sm:p-5 max-sm:p-4"
             >
-              <div class="flex items-center gap-4">
+              <div class="flex items-center gap-4 max-sm:gap-3">
                 <div
                   class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-bg-main"
                 >
@@ -466,7 +491,7 @@
                   </svg>
                 </div>
                 <div>
-                  <h2 class="font-display text-[20px] font-bold">
+                  <h2 class="font-display text-[20px] font-bold sm:text-[17px]">
                     Music for every moment.
                   </h2>
                   <p class="text-[13px] text-text-muted">
@@ -484,8 +509,12 @@
           </main>
 
           <!-- -----------------------------------------------FOOTER----------------------------------------------- -->
-          <footer class="border-t border-border px-10 py-8">
-            <div class="flex flex-col gap-8 sm:flex-row sm:justify-between">
+          <footer
+            class="border-t border-border px-10 py-8 lg:px-8 md:px-5 sm:px-4 max-sm:py-6"
+          >
+            <div
+              class="flex flex-col gap-8 sm:flex-row sm:justify-between max-sm:gap-6"
+            >
               <div>
                 <div class="flex items-center gap-2">
                   <img src="icons/logo.svg" alt="" class="h-5 w-5" />
@@ -497,7 +526,9 @@
                 </p>
               </div>
 
-              <div class="grid grid-cols-2 gap-8 text-[13px] sm:grid-cols-4">
+              <div
+                class="grid grid-cols-2 gap-8 text-[13px] sm:grid-cols-4 max-sm:gap-5"
+              >
                 <div>
                   <h4 class="mb-3 font-semibold text-textColor">Company</h4>
                   <ul class="flex flex-col gap-2 text-text-muted">
@@ -577,7 +608,7 @@
     <!-- -----------------------------------------------PLAYER BAR----------------------------------------------- -->
     <aside
       id="queuePanel"
-      class="fixed right-0 top-20 bottom-24 z-50 w-[25vw] flex-col rounded-l-xl border border-border bg-bg-sideBar shadow-2xl overflow-y-scroll hidden"
+      class="fixed right-0 top-20 bottom-24 z-50 w-[25vw] flex-col rounded-l-xl border border-border bg-bg-sideBar shadow-2xl overflow-y-scroll hidden lg:w-[30vw] md:w-[40vw] sm:w-[60vw] max-sm:bottom-16 max-sm:top-2 max-sm:right-2 max-sm:w-[calc(100vw-1rem)] max-sm:rounded-xl"
     >
       <div
         class="flex items-center justify-between border-b border-border px-5 py-4"
@@ -606,15 +637,17 @@
 
     <footer
       id="playerBar"
-      class="flex h-20 w-full shrink-0 items-center gap-4 border-t border-border bg-bg-sideBar px-6"
+      class="flex h-20 w-full shrink-0 items-center gap-4 border-t border-border bg-bg-sideBar px-6 lg:px-5 md:gap-3 md:px-4 sm:h-18 sm:px-3 max-sm:fixed max-sm:bottom-16 max-sm:left-0 max-sm:z-40 max-sm:h-16 max-sm:gap-2 max-sm:px-2"
     >
       <!-- Queue panel — overlay, right side, floats above the player bar -->
 
       <!-- now playing -->
-      <div class="flex w-64 min-w-0 items-center gap-3">
+      <div
+        class="flex w-64 min-w-0 items-center gap-3 lg:w-52 md:w-44 sm:w-36 max-sm:w-auto max-sm:flex-1 max-sm:gap-2"
+      >
         <img
           alt=""
-          class="h-12 w-12 shrink-0 rounded-md bg-surface object-cover"
+          class="h-12 w-12 shrink-0 rounded-md bg-surface object-cover sm:h-10 sm:w-10 max-sm:h-9 max-sm:w-9"
         />
         <div class="min-w-0">
           <h3 class="truncate text-[15px] font-semibold"></h3>
@@ -623,12 +656,12 @@
       </div>
 
       <!-- transport controls -->
-      <div class="flex flex-1 flex-col items-center gap-2">
-        <div class="flex items-center gap-5">
+      <div class="flex flex-1 flex-col items-center gap-2 min-w-0">
+        <div class="flex items-center gap-5 md:gap-4 sm:gap-3 max-sm:gap-2">
           <button
             id="shuffleBtn"
             aria-label="Shuffle"
-            class="text-text-muted transition hover:text-textColor"
+            class="text-text-muted transition hover:text-textColor sm:hidden"
           >
             <svg
               viewBox="0 0 24 24"
@@ -656,7 +689,7 @@
           <button
             id="playBtn"
             aria-label="Play"
-            class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-text transition hover:bg-primary-hover ease-in-out duration-300 hover:scale-105"
+            class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-text transition hover:bg-primary-hover ease-in-out duration-300 hover:scale-105 sm:h-8 sm:w-8"
           >
             <svg
               viewBox="0 0 24 24"
@@ -678,7 +711,7 @@
           <button
             id="repeatBtn"
             aria-label="Repeat"
-            class="text-text-muted transition hover:text-textColor"
+            class="text-text-muted transition hover:text-textColor sm:hidden"
           >
             <svg
               viewBox="0 0 24 24"
@@ -696,7 +729,7 @@
           </button>
         </div>
 
-        <div class="flex w-full max-w-xl items-center gap-2">
+        <div class="flex w-full max-w-xl items-center gap-2 max-sm:hidden">
           <span
             class="w-9 text-right text-[11px] text-text-muted"
             id="currentTime"
@@ -719,7 +752,9 @@
       </div>
 
       <!-- right-side controls -->
-      <div class="flex w-64 items-center justify-end gap-4">
+      <div
+        class="flex w-64 items-center justify-end gap-4 lg:w-52 md:w-40 sm:w-24 max-sm:hidden"
+      >
         <div class="flex items-center gap-2">
           <button
             aria-label="Volume"
