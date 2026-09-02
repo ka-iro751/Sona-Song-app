@@ -21,7 +21,7 @@
     class="bg-black text-textColor font-bodyText flex flex-col h-screen overflow-hidden"
   >
     <div class="flex flex-1 overflow-hidden">
-      <!-- ==================== SIDEBAR ==================== -->
+      <!--  -----------------------------------------------SIDEBAR-----------------------------------------------  -->
       <nav
         id="sideBar"
         class="flex h-full w-60 shrink-0 flex-col gap-6 bg-bg-sideBar p-5 text-[14px] font-medium"
@@ -35,7 +35,7 @@
           <a
             href="#"
             id="nav-home"
-            class="flex items-center gap-3 rounded-lg text-text-muted hover:bg-surface px-3 py-2.5"
+            class="flex items-center gap-3 rounded-lg text-text-muted bg-surface px-3 py-2.5"
           >
             <img
               src="icons/home_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
@@ -51,7 +51,7 @@
           <a
             href="#"
             id="nav-library"
-            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition hover:bg-surface hover:text-textColor"
+            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor"
           >
             <span class="flex items-center gap-3">
               <svg
@@ -64,7 +64,7 @@
                 <rect x="4" y="4" width="16" height="16" rx="2" />
                 <path d="M8 4v16" />
               </svg>
-              Your Library
+              ! Your Library
             </span>
             <svg
               viewBox="0 0 24 24"
@@ -80,7 +80,7 @@
           <a
             href="#"
             id="nav-playlists"
-            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition hover:bg-surface hover:text-textColor"
+            class="flex items-center justify-between rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor"
           >
             <span class="flex items-center gap-3">
               <svg
@@ -110,7 +110,7 @@
           <a
             href="#"
             id="nav-liked"
-            class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-text-muted transition hover:bg-surface hover:text-textColor"
+            class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-text-muted transition bg-alertColor hover:bg-hoverAlert hover:text-textColor"
           >
             <svg
               viewBox="0 0 24 24"
@@ -128,7 +128,7 @@
         </div>
       </nav>
 
-      <!-- ==================== MAIN COLUMN ==================== -->
+      <!-- -----------------------------------------------MAIN COLUMN----------------------------------------------- -->
       <div class="flex flex-1 flex-col overflow-hidden bg-bg-main">
         <div class="flex-1 overflow-y-auto overflow-x-clip">
           <!-- top bar -->
@@ -151,28 +151,6 @@
                 <path d="m21 21-4.3-4.3" stroke-linecap="round" />
               </svg>
             </div>
-
-            <div class="ml-auto flex items-center gap-5">
-              <button
-                id="notifications"
-                aria-label="Notifications"
-                class="text-textColor transition hover:text-primary"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  class="h-6 w-6"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <path
-                    d="M6 8a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 12 6 8Z"
-                    stroke-linejoin="round"
-                  />
-                  <path d="M10 18a2 2 0 0 0 4 0" stroke-linecap="round" />
-                </svg>
-              </button>
-            </div>
           </header>
 
           <main class="px-10 pb-10">
@@ -183,15 +161,10 @@
               Let the music take over.
             </p>
 
-            <!-- ============ QUICK PICKS ============ -->
+            <!-- -----------------------------------------------QUICK PICKS----------------------------------------------- -->
             <section class="mt-8">
               <div class="mb-4 flex items-end justify-between">
                 <h2 class="font-display text-[22px] font-bold">Quick picks</h2>
-                <a
-                  href="#"
-                  class="text-[14px] font-medium text-text-muted transition hover:text-textColor"
-                  >View all</a
-                >
               </div>
 
               <div
@@ -332,15 +305,50 @@
               </div>
             </section>
 
-            <!-- ============ NEW RELEASES ============ -->
+            <!-- -----------------------------------------------NEW RELEASES----------------------------------------------- -->
             <section class="mt-10">
               <div class="mb-4 flex items-end justify-between">
                 <h2 class="font-display text-[22px] font-bold">New releases</h2>
-                <a
-                  href="#"
-                  class="text-[14px] font-medium text-text-muted transition hover:text-textColor"
-                  >View all</a
-                >
+                <div class="flex items-center gap-2">
+                  <button
+                    id="newPrev"
+                    aria-label="Scroll left"
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-textColor transition hover:bg-surface-muted"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="m15 18-6-6 6-6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    id="newNext"
+                    aria-label="Scroll right"
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-surface text-textColor transition hover:bg-surface-muted"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="m9 18 6-6-6-6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               <!-- New Releases-->
@@ -349,41 +357,10 @@
                 id="newReleases"
                 class="grid grid-flow-col grid-rows-3 gap-3 overflow-x-auto pb-2"
                 style="grid-auto-columns: minmax(320px, 1fr)"
-              >
-                <article
-                  class="release-card flex items-center gap-3 rounded-lg p-2 transition hover:bg-surface"
-                >
-                  <img
-                    src=""
-                    alt=""
-                    class="h-14 w-14 shrink-0 rounded-md bg-surface object-cover"
-                  />
-                  <div class="min-w-0 flex-1">
-                    <h3 class="truncate text-[15px] font-semibold">
-                      Endless Nights
-                    </h3>
-                    <p class="truncate text-[13px] text-text-muted">
-                      Armaan Malik
-                    </p>
-                  </div>
-                  <button
-                    aria-label="Play Endless Nights"
-                    class="shrink-0 text-textColor transition hover:text-primary"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      class="h-8 w-8"
-                      fill="currentColor"
-                    >
-                      <circle cx="12" cy="12" r="11" fill-opacity="0.12" />
-                      <path d="M10 8.5v7l6-3.5z" />
-                    </svg>
-                  </button>
-                </article>
-              </div>
+              ></div>
             </section>
 
-            <!-- ============ YOUR FAVS ============ -->
+            <!-- -----------------------------------------------YOUR FAVS----------------------------------------------- -->
 
             <section class="mt-10">
               <div class="mb-4 flex items-end justify-between">
@@ -458,9 +435,15 @@
                   <p class="truncate text-[13px] text-text-muted">Artist</p>
                 </article>
               </div>
+              <p
+                class="flex justify-center items-center text-center bg-alertColor rounded-2xl"
+              >
+                These parts need persistence. <br />
+                Under construction!
+              </p>
             </section>
 
-            <!-- ============ PROMO BANNER ============ -->
+            <!-- -----------------------------------------------PROMO BANNER----------------------------------------------- -->
 
             <section
               class="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl bg-surface p-6 sm:flex-row sm:items-center"
@@ -493,14 +476,14 @@
               </div>
               <button
                 id="exploreMore"
-                class="shrink-0 rounded-full bg-primary px-6 py-2.5 text-[14px] font-semibold text-primary-text transition hover:bg-primary-hover"
+                class="shrink-0 rounded-full bg-primary px-6 py-2.5 text-[14px] font-semibold text-primary-text transition hover:bg-primary-hover hover:scale-110"
               >
-                Explore more
+                Thank You!
               </button>
             </section>
           </main>
 
-          <!-- ============ FOOTER ============ -->
+          <!-- -----------------------------------------------FOOTER----------------------------------------------- -->
           <footer class="border-t border-border px-10 py-8">
             <div class="flex flex-col gap-8 sm:flex-row sm:justify-between">
               <div>
@@ -509,7 +492,8 @@
                   <span class="font-display text-[16px] font-bold">Sona</span>
                 </div>
                 <p class="mt-2 text-[13px] text-text-muted">
-                  © 2026 Sona. All rights reserved.
+                  © 2026 Sona. All rights reserved. <br />
+                  Made with iTunes. Thank you for the songs.
                 </p>
               </div>
 
@@ -590,7 +574,7 @@
       </div>
     </div>
 
-    <!-- ==================== PLAYER BAR ==================== -->
+    <!-- -----------------------------------------------PLAYER BAR----------------------------------------------- -->
     <aside
       id="queuePanel"
       class="fixed right-0 top-20 bottom-24 z-50 w-[25vw] flex-col rounded-l-xl border border-border bg-bg-sideBar shadow-2xl overflow-y-scroll hidden"
@@ -713,7 +697,11 @@
         </div>
 
         <div class="flex w-full max-w-xl items-center gap-2">
-          <span class="w-9 text-right text-[11px] text-text-muted" id="currentTime">1:42</span>
+          <span
+            class="w-9 text-right text-[11px] text-text-muted"
+            id="currentTime"
+            >1:42</span
+          >
           <div
             id="progressTrack"
             class="h-1 flex-1 cursor-pointer rounded-full bg-surface"
@@ -724,9 +712,7 @@
               style="width: 40%"
             ></div>
           </div>
-          <span
-            class="w-9 text-[11px] text-text-muted"
-            id="duration"
+          <span class="w-9 text-[11px] text-text-muted" id="duration"
             >4:20</span
           >
         </div>

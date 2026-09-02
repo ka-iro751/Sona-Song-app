@@ -11,6 +11,9 @@
   --color-text-secondary: #e0ddcf;
   --color-text-muted: #b8b5ad;
 
+  --color-alertColor: #ff4545;
+  --color-hoverAlert: #ff8383;
+
   /* Borders */
   --color-border: #534b52;
 
