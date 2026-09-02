@@ -367,3 +367,14 @@ function playSongs(song) {
   player.src = song.previewUrl;
   player.play();
 }
+
+//search bar
+let debounceTimer;
+document.getElementById("search-input").addEventListener("input", (e) => {
+  clearTimeout(debounceTimer);
+  const input = e.target.value;
+  debounceTimer = setTimeout(() => {
+    if (!input) return;
+    loadQueue(input);
+  }, 400);
+});
